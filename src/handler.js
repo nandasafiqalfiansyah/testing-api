@@ -9,8 +9,7 @@ const generateQRCode = (qr) => {
         reject(err);
       } else {
         qrCodeData = url;
-        console.log(qrCodeData)
-        resolve(url);
+         resolve(url);
       }
     });
   });
