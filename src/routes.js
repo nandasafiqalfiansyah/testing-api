@@ -5,14 +5,12 @@ const client = new Client({
   auth: new LocalAuth(),
 });
 
-client.on("qr", async (qr) => {
-  try {
-    console.log("QR code event received. Generating QR code...");
-    await generateQRCode(qr);
-    console.log("QR code generated successfully.");
-  } catch (err) {
-    console.error("Error generating QR code:", err);
-  }
+// Automatically generate QR code when the "qr" event is emitted
+client.on("qr", (qr) => {
+  console.log("QR code event received. Generating QR code...");
+  generateQRCode(qr)
+    .then(() => console.log("QR code generated successfully."))
+    .catch((err) => console.error("Error generating QR code:", err));
 });
 
 const routes = [
