@@ -26,8 +26,12 @@ const routes =[
         }
       });
       
-      client.initialize();
-      
+      try {
+        client.initialize();
+      } catch (error) {
+        console.error("Error initializing client:", error);
+        // Log the error or take other appropriate actions
+      }
       const qrCodeData = getQRCodeData();
       if (qrCodeData) {
         return h.response({ qrCode: qrCodeData }).code(200);
