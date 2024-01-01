@@ -54,5 +54,3 @@ const routes = [
 
 module.exports = routes;
 
-// Initialize the WhatsApp client after defining routes
-client.initialize();
